@@ -1,0 +1,33 @@
+button {
+  font-weight: bold;
+  color: #fff;
+  height: 44px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer; 
+}
+
+.desktop {
+  padding: 10px 30px 10px 46px ;
+  background: url(./../../public/IconSvg.svg) no-repeat 26px center;
+}
+
+.tablet {
+  padding: 10px 30px;
+}
+
+.mobile {
+  width: 44px;
+  padding: 10px 10px;
+  background: url(./../../public/IconSvg.svg) no-repeat center;
+}
+
+.main {
+  background-color: #267EF8;
+}
+
+.disabled {
+  color: #BCBFC2;
+  background-color: #EBF0F4;
+  border: 1px solid #BCBFC2;
+}
