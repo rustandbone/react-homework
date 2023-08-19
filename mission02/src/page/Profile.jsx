@@ -4,7 +4,7 @@ import ProfileTitle from './profile/ProfileTitle';
 import ProfileList from './profile/ProfileList';
 import { NavLink } from 'react-router-dom';
 
-export default function ProfileSelect({select}) {
+export default function Profile({select}) {
   return (
     <section className="mx-auto mb-24 mt-12 w-[70%]">
       <ProfileTitle>프로필 {select ? '선택' : '편집'}</ProfileTitle>
