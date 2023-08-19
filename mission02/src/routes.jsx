@@ -6,7 +6,6 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    // 중첩된 라우트
     children: [
       { index: true, element: <Profile select /> },
       { path: 'edit', element: <Profile /> },
