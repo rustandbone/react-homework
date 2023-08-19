@@ -21,7 +21,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       onBlur={() => {
         (root.firstChild.style.backgroundColor = color.main);
       }}
-    />
+    >Button</Button>
     <Button
       size="tablet"
       onMouseEnter={() => {
@@ -36,7 +36,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       onBlur={() => {
         (root.childNodes[1].style.backgroundColor = color.main);
       }}
-    />
+    >Button</Button>
     <Button size="mobile"
       onMouseEnter={() => {
         (root.childNodes[2].style.backgroundColor = color.hover);
@@ -52,8 +52,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       }}
     />
 
-    <Button disabled />
-    <Button size="tablet" disabled />
+    <Button disabled>Button</Button>
+    <Button size="tablet" disabled>Button</Button>
     <Button size="mobile" disabled />
   </StrictMode>,
 )
