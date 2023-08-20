@@ -1,10 +1,15 @@
+import FooterMenu from "./footer/FooterMenu";
+import FooterSns from "./footer/FooterSns";
+import { footerMenuList, footerSnsList } from "./footer/footerData"
+
 export default function Footer() {
+
   return (
     <footer className="mx-8 text-sm leading-6">
       <div className="border-bottom flex justify-between border-b-[1px] border-solid border-gray8 pb-[1rem] text-gray2">
         <p className="notice">
-          <strong className="mr-5 text-gray5">공지사항</strong
-          ><a href="/">[안내] 합병보고 주주총회에 갈음하는 공고</a>
+          <strong className="mr-5 text-gray5">공지사항</strong>
+          <a href="/">[안내] 합병보고 주주총회에 갈음하는 공고</a>
         </p>
         <div>
           <button
@@ -22,27 +27,7 @@ export default function Footer() {
       <ul
         className="flex text-gray2 gap-[36px] my-4"
       >
-        <li>
-          <a href="./" className="block hover:text-white">고객센터</a>
-        </li>
-        <li>
-          <a href="./" className="block hover:text-white">이용약관</a>
-        </li>
-        <li>
-          <a href="./" className="block hover:text-white">개인정보처리방침</a>
-        </li>
-        <li>
-          <a href="./" className="block hover:text-white">청소년 보호정책</a>
-        </li>
-        <li>
-          <a href="./" className="block hover:text-white">법적고지</a>
-        </li>
-        <li>
-          <a href="./" className="block hover:text-white">이벤트</a>
-        </li>
-        <li>
-          <a href="./" className="block hover:text-white">인재채용</a>
-        </li>
+        {footerMenuList.map((item) => <FooterMenu key={item}>{item}</FooterMenu>)}
       </ul>
 
       <div className="text-gray5">
@@ -81,37 +66,12 @@ export default function Footer() {
       </div>
 
       <ul className="flex items-center gap-6 my-4">
-        <li className="flex-shrink-0">
-          <a
-            href="./"
-            className="youtube flex items-center justify-center rounded-[50%] bg-gray8 h-[52px] w-[52px]">
-            <img src="/icon/youtube.svg" alt="유튜브"/>
-          </a>
-        </li>
-        <li className="flex-shrink-0">
-          <a
-            href="./"
-            className="instagram flex items-center justify-center rounded-[50%] bg-gray8 h-[52px] w-[52px]">
-            <img src="/icon/instagram.svg" alt="인스타그램"/>
-          </a>
-        </li>
-        <li className="flex-shrink-0">
-          <a
-            href="./"
-            className="Twitter flex items-center justify-center rounded-[50%] bg-gray8 h-[52px] w-[52px]">
-            <img src="/icon/twitter.svg" alt="트위터"/>
-          </a>
-        </li>
-        <li className="flex-shrink-0">
-          <a
-            href="./"
-            className="Twitter flex items-center justify-center rounded-[50%] bg-gray8 h-[52px] w-[52px]">
-            <img src="/icon/facebook.svg" alt="페이스북"/>
-          </a>
-        </li>
+        {footerSnsList.map(item => {
+          return <FooterSns key={Object.keys(item)} sns={item}></FooterSns>
+        })}
       </ul>
 
       <small className="text-gray5 text-sm">Copyright © 주식회사 티빙 All right reserved.</small>
-    </footer>
+    </footer> 
   )
 }
