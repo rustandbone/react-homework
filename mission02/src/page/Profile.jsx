@@ -3,8 +3,16 @@ import ProfileText from './profile/ProfileText';
 import ProfileTitle from './profile/ProfileTitle';
 import ProfileList from './profile/ProfileList';
 import { NavLink } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
-export default function Profile({select}) {
+export default function Profile({select, title}) {
+  const [pagetitle, setTitle] = useState('');
+
+  useEffect(()=> {
+    setTitle(title);
+    document.title = `TAING - ${pagetitle}`;
+  }, [pagetitle, title])
+
   return (
     <section className="mx-auto mb-24 mt-12 w-[70%]">
       <ProfileTitle>프로필 {select ? '선택' : '편집'}</ProfileTitle>
