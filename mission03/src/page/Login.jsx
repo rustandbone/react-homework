@@ -1,6 +1,42 @@
-import { NavLink } from "react-router-dom";
+import pb from "@/api/pocketbase";
+import { useState } from "react";
+import { useNavigate, useLocation, Link, NavLink } from "react-router-dom";
 
 export default function Login() {
+  const { state } = useLocation();
+  const navigate = useNavigate();
+  
+  const [formState, setFormState] = useState({
+    username:'',
+    password:'',
+  })
+
+  const handleSignIn = async (e) => {
+    e.preventDefault();
+    //PocketBase SDK 인증 요청
+    const { username, password } = formState;
+
+    try {
+      await pb.collection('users').authWithPassword(username, password)
+
+      // if(!state) {
+        navigate('/profile');
+      // } else {
+      //   navigate(state.wishLocationPath)
+      // } 
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  const handleInput = (e) => {
+    const {name, value} = e.target;
+    setFormState({
+      ...formState,
+      [name]:value
+    })
+  }
+
   return (
     <section
       className="login mx-[auto] my-14 w-2/5 max-w-[400px]"
@@ -12,14 +48,18 @@ export default function Login() {
           </h3>
         </div>
       </div>
-      <form name="input_form">
+
+      <form name="input_form" onSubmit={handleSignIn}>
         <label htmlFor="id_input" className="data_input sr-only">아이디</label>
         <input
           type="text"
           className="id_box mb-2.5 block w-full rounded border-0 bg-darkbg2 px-[15px] py-5 text-white outline-[0]"
           id="id_input"
+          name="username" 
           placeholder="아이디"
           required="required"
+          defaultValue={formState.username} 
+          onChange={handleInput}
         />
         <span
           className="error-message m-2 hidden text-xs text-red_login"
@@ -32,9 +72,12 @@ export default function Login() {
             type="password"
             className="pw_box w-full rounded border-0 bg-darkbg2 px-[15px] py-5 text-white outline-[0]"
             id="password_input"
+            name="password" 
             placeholder="비밀번호"
             required="required"
             autoComplete="current-password"
+            defaultValue={formState.password} 
+            onChange={handleInput}
           />
           <button
             id="closePW"
@@ -45,7 +88,6 @@ export default function Login() {
             id="userPasswordError"
             >비밀번호는 특수문자 포함 10자리 이상으로 입력해 주세요.</span>
         </div>
-      </form>
       <ul className="checks_wrap">
         <li className="checks">
           <input
@@ -58,14 +100,14 @@ export default function Login() {
           </label>
         </li>
       </ul>
-      <div className="btn-wrap">
+
         <button
           id="doLogIn"
           className="btn_color bg- mx-0 mb-10 mt-5 inline-block w-full rounded bg-red_login px-0 py-[15px] text-white"
         >
           로그인
         </button>
-      </div>
+      </form>
       <div className="join_wrap flex justify-center gap-2.5 text-gray5">
         &quot;아직 계정이 없으신가요?&quot;
         <NavLink to="/join">
