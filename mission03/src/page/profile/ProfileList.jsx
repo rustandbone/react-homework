@@ -50,7 +50,7 @@ export default function ProfileList({selected, icon}) {
                         (icon === 'lock' &&
                         item.nickname === selected) || 
                         <img
-                          src={`/icon/${icon}.png`}
+                          src={`./icon/${icon}.png`}
                           alt="자물쇠"
                           className={`absolute left-[calc(50%-1.5625rem)] top-[calc(50%-1.5625rem)] w-14 h-14 brightness-200 
                             ${icon === 'lock' ? 'invert-[80%]' : ''}`}
@@ -69,7 +69,7 @@ export default function ProfileList({selected, icon}) {
           <li className=" w-40">
             <Link to={`/profile/create`}>
               <div className="relative w-40 h-40 border rounded-md border-white border-solid">
-                <img src='/icon/plus.svg' className={`absolute left-[calc(50%-1.5625rem)] top-[calc(50%-1.5625rem)] w-14 h-14 brightness-200 invert-[80%]`}/>
+                <img src='./icon/plus.svg' className={`absolute left-[calc(50%-1.5625rem)] top-[calc(50%-1.5625rem)] w-14 h-14 brightness-200 invert-[80%]`}/>
               </div>
               <p className="py-4 text-center text-xl text-gray3">프로필 생성</p> 
             </Link>

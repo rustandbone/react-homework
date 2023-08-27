@@ -60,7 +60,7 @@ export default function ProfileCreate() {
             className="absolute w-full h-full opacity-0 cursor-pointer" />
           <div className="flex justify-center">
             <img className={`-z-10 rounded-md absolute h-full`}
-              src='/icon/taing.svg' ref={uploadimageRef}
+              src='./icon/taing.svg' ref={uploadimageRef}
               alt="" />
           </div>
         </div>

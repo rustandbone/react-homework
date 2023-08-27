@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="border-bottom flex justify-between border-b-[1px] border-solid border-gray8 pb-[1rem] text-gray2">
         <p className="notice">
           <strong className="mr-5 text-gray5">공지사항</strong>
-          <a href="/">[안내] 합병보고 주주총회에 갈음하는 공고</a>
+          <a href="./">[안내] 합병보고 주주총회에 갈음하는 공고</a>
         </p>
         <div>
           <button
