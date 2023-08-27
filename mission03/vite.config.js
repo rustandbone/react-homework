@@ -8,7 +8,7 @@ const idDev = env.NODE_ENV === 'development';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/react-homework/',
+  base: '/react-homework/mission03/',
   css: {
     devSourcemap: true,
     modules: {
